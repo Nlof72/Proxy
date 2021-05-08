@@ -99,6 +99,7 @@ namespace WindowsFormsApp5
 
         private void OpenCell(object sender, EventArgs e)
         {
+            if (cells == null) return;
             Button b = (Button)sender;
             MineProxy mineProxy = new MineProxy();
             int q;
