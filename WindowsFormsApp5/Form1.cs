@@ -109,12 +109,7 @@ namespace WindowsFormsApp5
                 if (numberOfFlags == 0) return;
                 numberOfFlags--;
             }
-            if (CheckWin())
-            {
-                Restart();
-                Console.WriteLine(111);
-                return;
-            }
+
             if (cells[i][j].getStatus() == Cell.OPENED) return;
             cells[i][j].open(buttons[i][j], CountMines(mineProxy, i, j));
             if(cells[i][j].GetType() == mineProxy.GetType())
@@ -157,6 +152,12 @@ namespace WindowsFormsApp5
             numberOfEmpty--;
             score += cells[i][j].getPoints();
             UpdateScore();
+            if (CheckWin())
+            {
+                Restart();
+                Console.WriteLine(111);
+                return;
+            }
         }
 
         int CountMines(MineProxy mineProxy, int i, int j)
